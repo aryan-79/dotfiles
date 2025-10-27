@@ -1,0 +1,136 @@
+{
+  "margin-top": 5,
+  "margin-left": 10,
+  "margin-right": 10,
+  "height": 30,
+  "modules-left": [
+    "hyprland/window",
+    "cpu",
+    "memory",
+    "clock",
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "temperature",
+    "battery",
+    "power-profiles-daemon",
+  ],
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "rewrite": {
+      "": "Aryan"
+    },
+    "separate-outputs": true,
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": " ",
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 4, // 5 workspaces by default on every monitor
+      "HDMI-A-1": 3 // but only three on HDMI-A-1
+    },
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{percentage}%  "
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+    ]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰖪 off",
+    "format-alt": "{essid}"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "bluetooth": {
+    "controller": "hci0",
+    "format": "{icon} {status}",
+    "format-disabled": "{status}",
+    "format-connected": "{icon} {device_alias}",
+    "format-icons": {
+      "enabled": "󰂯",
+      "disabled": "󰂲",
+      "connected": "󰂱 "
+    },
+    "on-click": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; fi'",
+    "on-click-right": "blueberry"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon} ",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "tray": {
+    "spacing": 10,
+    "icon-size": 16,
+    "show-passive-items": true,
+  }
+}
