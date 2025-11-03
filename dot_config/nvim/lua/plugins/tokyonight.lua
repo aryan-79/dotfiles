@@ -1,7 +1,6 @@
 return {
   {
     "folke/tokyonight.nvim",
-    enabled = true,
     opts = {
       transparent = true,
       styles = {
