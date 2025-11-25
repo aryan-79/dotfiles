@@ -78,12 +78,21 @@
     ]
   },
   "network": {
-    "format-wifi": "  {signalStrength}%",
+    "format-wifi": "{icon}  {essid}",
     "format-ethernet": "{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format": "{frequency}Ghz {ifname} {bandwidthDownBits}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "󰖪 off",
-    "format-alt": "{essid}"
+    "format-disconnected": "󰤭 off",
+    "format-alt": "{essid}",
+    "interval": 1,
+    "format-icons": {
+      "default": [
+        "󰤨",
+        "󰤥",
+        "󰤟",
+        "󰤯"
+      ]
+    }
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
@@ -103,6 +112,7 @@
         ""
       ]
     },
+    "reverse-scrolling": true,
     "on-click": "pavucontrol"
   },
   "bluetooth": {
