@@ -78,12 +78,13 @@
     ]
   },
   "network": {
+    "interface": "wlan0",
     "format-wifi": "{icon}  {essid}",
     "format-ethernet": "{cidr} ",
-    "tooltip-format": "{frequency}Ghz {ifname} {bandwidthDownBits}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "󰤭 off",
-    "format-alt": "{essid}",
+    "format-disconnected": "󰤭 Not Connected",
+    "format-disabled": "󰤭 Off",
+    "tooltip-format": "{frequency}Ghz {ifname} {bandwidthDownBits}",
     "interval": 1,
     "format-icons": {
       "default": [
@@ -92,7 +93,8 @@
         "󰤟",
         "󰤯"
       ]
-    }
+    },
+    "on-click": "hyprctl dispatch -- exec '[float; size 800 700] ghostty -e impala'"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
