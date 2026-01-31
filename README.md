@@ -12,6 +12,7 @@ A comprehensive guide for setting up Arch Linux with Hyprland and essential deve
 - [Theming](#theming)
 - [Hardware Control](#hardware-control)
 - [Network Management](#network-management)
+- [Custom Scripts](#custom-scripts)
 
 ---
 
@@ -317,6 +318,35 @@ Follow the [simple-sddm](https://github.com/JaKooLit/simple-sddm) guide.
 yay -S qt5-quickcontrols2 qt5-graphicaleffects
 ```
 
+### Dynamic Theming with Wallust
+
+[Wallust](https://codeberg.org/explosion-mental/wallust) generates color schemes from your wallpaper and applies them across your entire desktop environment.
+
+#### Install Wallust
+```sh
+yay -S wallust
+```
+
+#### Generate Colors from an Image
+```sh
+wallust run ~/path/to/image
+```
+
+#### Test Colors Without Applying
+```sh
+wallust run ~/path/to/image -s -T
+```
+> **Flags:** `-s` skips setting terminal colors, `-T` skips the templating sequence
+
+#### Configuration
+Wallust is configured in `~/.config/wallust/wallust.toml`. The current setup generates colors for:
+- **Waybar** - Status bar colors (`~/.config/waybar/colors.css`)
+- **Ghostty** - Terminal theme (`~/.config/ghostty/themes/custom.conf`)
+- **Hyprland** - Window border and UI colors (`~/.config/hypr/modules/colors.conf`)
+- **Walker** - Application launcher theme (`~/.config/walker/themes/default/style.css`)
+
+> **Tip:** Use the [`set-wallpaper`](#set-wallpapersh) script for a convenient one-command workflow.
+
 ---
 
 ## Hardware Control
@@ -351,6 +381,45 @@ wifi.backend=iwd
 ```
 
 ---
+
+## Custom Scripts
+
+Custom scripts are located in the `~/scripts/` directory and can be symlinked to `/usr/local/bin/` for system-wide access.
+
+### Installation
+```sh
+sudo ln -s ~/scripts/personal.sh /usr/local/bin/pp
+sudo ln -s ~/scripts/set-wallpaper.sh /usr/local/bin/set-wallpaper
+```
+
+### `personal.sh`
+A tmux session manager for development workflows. Creates a "work" session with four windows:
+| Window | Name | Purpose |
+|--------|------|---------|
+| 1 | `frontend` | Frontend code editing |
+| 2 | `frontend-server` | Frontend development server |
+| 3 | `backend` | Backend code editing |
+| 4 | `backend-server` | Backend development server |
+
+**Usage:**
+```sh
+pp
+```
+
+### `set-wallpaper.sh`
+An automated wallpaper and theming script that:
+1. Copies the specified image to `~/.config/hypr/wallpaper/active.<ext>`
+2. Sends a desktop notification confirming the change
+3. Runs [`wallust`](#dynamic-theming-with-wallust) to generate colors from the image
+4. Reloads Hyprpaper to display the new wallpaper
+5. Restarts Waybar to apply new colors
+
+**Usage:**
+```sh
+set-wallpaper ~/path/to/image.jpg
+```
+
+> **Note:** The script cleans up old `active.*` files to prevent conflicts between different image formats.
 
 ## Additional Notes
 
