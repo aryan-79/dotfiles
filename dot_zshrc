@@ -17,6 +17,12 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi="nvim"
 
+alias gc="git commit -m"
+alias gca="git commit --amend"
+alias gp="git pull"
+alias gsc="git switch -c"
+alias gs="git switch"
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 
