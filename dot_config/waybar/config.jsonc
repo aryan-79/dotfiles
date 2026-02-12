@@ -14,6 +14,7 @@
   ],
   "modules-right": [
     "pulseaudio",
+    "backlight",
     "network",
     "bluetooth",
     "temperature",
@@ -76,6 +77,17 @@
       "",
       ""
     ]
+  },
+  "backlight": {
+    "interval": 5,
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      " 󰃞",
+      " 󰃟",
+      " 󰃠",
+    ],
+    "reverse-scrolling": true
   },
   "network": {
     "interface": "wlan0",
