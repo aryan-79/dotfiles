@@ -1,0 +1,80 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+  "control-center-width": 450,
+  "fit-to-screen": true,
+
+  "notification-window-width": 400,
+  "notification-body-image-height": 500,
+  "notification-body-image-width": 500,
+  "notification-inline-replies": true,
+  "notification-2fa-action": false,
+
+  "timeout": 3,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "script-fail-notify": true,
+
+  "widgets": ["mpris", "dnd", "notifications", "buttons-grid"],
+
+  "widget-config": {
+    "backlight": {
+      "device": "amdgpu_bl1",
+      "label": "󰃠",
+      "min": 10
+    },
+    "volume": {
+      "label": "",
+      "show-per-app-icon": false
+    },
+
+    "dnd": {
+      "text": "Do not disturb"
+    },
+
+    "mpris": {
+      "show-album-art": "always",
+      "autohide": false,
+      "blacklist": ["org.mpris.MediaPlayer2.playerctld"]
+    },
+
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "󰂯",
+          "type": "toggle",
+          "command": "sh $HOME/.config/swaync/scripts/bluetooth_toggle.sh",
+          "update-command": "sh $HOME/.config/swaync/scripts/update_bluetooth.sh"
+        },
+        {
+          "label": "󰌪",
+          "type": "toggle",
+          "command": "sh -c $HOME/.config/swaync/scripts/quiet.sh",
+          "update-command": "sh -c $HOME/.config/swaync/scripts/update_quiet.sh"
+        },
+        {
+          "label": "",
+          "type": "toggle",
+          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+          "update-command": "sh -c $HOME/.config/swaync/scripts/update_mic.sh"
+        }
+      ]
+    }
+  }
+}
