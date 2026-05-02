@@ -20,7 +20,7 @@ return {
   },
   {
     "folke/flash.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "rcarriga/nvim-notify",
