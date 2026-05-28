@@ -1,0 +1,6 @@
+require("modules.general")
+require("modules.animations")
+require("modules.keybinds")
+require("modules.autostart")
+require("modules.env")
+require("modules.windowrules")
