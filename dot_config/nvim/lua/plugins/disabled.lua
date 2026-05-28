@@ -1,7 +1,7 @@
 return {
   {
     "folke/which-key.nvim",
-    enabled = true,
+    enabled = false,
   },
   {
     "folke/noice.nvim",
@@ -20,14 +20,10 @@ return {
   },
   {
     "folke/flash.nvim",
-    enabled = true,
-  },
-  {
-    "rcarriga/nvim-notify",
     enabled = false,
   },
   {
-    "folke/which-key.nvim",
+    "rcarriga/nvim-notify",
     enabled = false,
   },
 }

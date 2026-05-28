@@ -7,9 +7,9 @@ return {
         enabled = true,
       },
       tools = {
-        claude = {
-          cmd = { "ollama", "launch", "claude", "--model", "minimax-m2.5:cloud" },
-        },
+        -- claude = {
+        --   cmd = { "ollama", "launch", "claude", "--model", "minimax-m2.5:cloud" },
+        -- },
         opencode = {
           cmd = { "ollama", "launch", "opencode", "--model", "minimax-m2.5:cloud" },
         },
