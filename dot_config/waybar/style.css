@@ -76,7 +76,8 @@ button:hover {
 #network,
 #temperature,
 #battery,
-#bluetooth {
+#bluetooth,
+#backlight {
   color: @foreground;
 }
 
@@ -128,4 +129,8 @@ label:focus {
 
 #pulseaudio.muted {
   color: @color12;
+}
+
+#power-profiles-daemon {
+  color: @foreground;
 }

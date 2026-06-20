@@ -100,10 +100,10 @@
     "interval": 1,
     "format-icons": {
       "default": [
-        "󰤨",
-        "󰤥",
+        "󰤯",
         "󰤟",
-        "󰤯"
+        "󰤥",
+        "󰤨",
       ]
     },
     "on-click": "hyprctl dispatch -- exec '[float; size 800 700] ghostty -e impala'"
