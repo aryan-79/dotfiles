@@ -4,3 +4,4 @@ font-style=Regular
 theme=custom.conf
 cursor-style-blink = true
 
+shell-integration-features = ssh-env,ssh-terminfo
