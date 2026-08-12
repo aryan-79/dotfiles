@@ -421,6 +421,18 @@ set-wallpaper ~/path/to/image.jpg
 
 > **Note:** The script cleans up old `active.*` files to prevent conflicts between different image formats.
 
+## Prevent logs on startup and shutdown
+
+- Edit the file in `/etc/kernel/cmdline` and append these flags
+```txt
+loglevel=3 quiet rd.systemd.show_status=false rd.udev.log_priority=3
+```
+
+- Rebuild
+```sh
+sudo mkinitcpio -P
+```
+
 ## Additional Notes
 
 - Always review package dependencies before installation
