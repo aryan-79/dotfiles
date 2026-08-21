@@ -158,6 +158,8 @@ background-opacity=0.8
 font-family="JetBrains Mono"
 ```
 
+> **Note:**  `ghostty +show-config | grep font` for checking font configuration and `ghostty +show-face --string="A"` to check which font is being rendered
+
 ### Tmux
 ```sh
 yay -S tmux

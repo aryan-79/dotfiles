@@ -1,7 +1,8 @@
 background-opacity=0.8
-font-family="JetBrainsMono Nerd Font Mono"
+#font-family="JetBrainsMono Nerd Font Mono"
+font-family="Maple Mono NF CN"
 font-style=Regular
 theme=custom.conf
-cursor-style-blink = true
+cursor-style-blink=true
 
-shell-integration-features = ssh-env,ssh-terminfo
+shell-integration-features=ssh-env,ssh-terminfo

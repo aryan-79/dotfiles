@@ -13,6 +13,22 @@ local function with_prefix(prefix, keys)
   return prefix .. "+" .. table.concat(keys, "+")
 end
 
+-- local function layout_bind(bind_table)
+--     return function ()
+--         local workspace = hl.get_active_special_workspace() or
+--                           hl.get_active_workspace()
+--
+--         if not workspace then
+--             return
+--         end
+--
+--         local layout = workspace.tiled_layout
+--         if bind_table[layout] then
+--             hl.dispatch(bind_table[layout])
+--         end
+--     end
+-- end
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
@@ -29,14 +45,25 @@ hl.bind(with_prefix(super, { "F" }), hl.dsp.window.fullscreen({ mode = "fullscre
 hl.bind(with_prefix(super, { "V" }), hl.dsp.exec_cmd("walker -m clipboard"))
 hl.bind(with_prefix(super, { "N" }), hl.dsp.exec_cmd("swaync-client -t -sw"))
 
--- hl.bind(with_prefix(super, { "H" }), hl.dsp.focus({ direction = "left" }))
--- hl.bind(with_prefix(super, { "L" }), hl.dsp.focus({ direction = "right" }))
--- hl.bind(with_prefix(super, { "K" }), hl.dsp.focus({ direction = "up" }))
--- hl.bind(with_prefix(super, { "J" }), hl.dsp.focus({ direction = "down" }))
+local workspace = hl.get_active_special_workspace() or
+    hl.get_active_workspace()
 
---NOTE: above method didn't work for scrolling layout
-hl.bind(with_prefix(super, { "H" }), hl.dsp.layout("focus l"))
-hl.bind(with_prefix(super, { "L" }), hl.dsp.layout("focus r"))
+if workspace and workspace.tiled_layout == "scrolling" then
+  hl.bind(with_prefix(super, { "H" }), hl.dsp.layout("focus l"))
+  hl.bind(with_prefix(super, { "L" }), hl.dsp.layout("focus r"))
+
+  hl.bind(with_prefix(super_shift, { "F" }), function()
+    if workspace.has_fullscreen then
+      hl.dispatch(hl.dsp.window.fullscreen({ mode = "fullscreen", action = "unset" }))
+    end
+    hl.dispatch(hl.dsp.layout("colresize 0.5"))
+  end)
+else
+  hl.bind(with_prefix(super, { "H" }), hl.dsp.focus({ direction = "left" }))
+  hl.bind(with_prefix(super, { "L" }), hl.dsp.focus({ direction = "right" }))
+  hl.bind(with_prefix(super, { "K" }), hl.dsp.focus({ direction = "up" }))
+  hl.bind(with_prefix(super, { "J" }), hl.dsp.focus({ direction = "down" }))
+end
 
 
 hl.bind(with_prefix(super, { "D" }), hl.dsp.workspace.toggle_special("magic"))
