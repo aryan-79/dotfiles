@@ -56,13 +56,22 @@ if workspace and workspace.tiled_layout == "scrolling" then
     if workspace.has_fullscreen then
       hl.dispatch(hl.dsp.window.fullscreen({ mode = "fullscreen", action = "unset" }))
     end
-    hl.dispatch(hl.dsp.layout("colresize 0.5"))
+    hl.dispatch(hl.dsp.layout("colresize all 0.5"))
   end)
+
+  hl.bind(with_prefix(super, { "CTRL", "LEFT" }), hl.dsp.layout("colresize -0.25"))
+  hl.bind(with_prefix(super, { "CTRL", "RIGHT" }), hl.dsp.layout("colresize +0.25"))
 else
   hl.bind(with_prefix(super, { "H" }), hl.dsp.focus({ direction = "left" }))
   hl.bind(with_prefix(super, { "L" }), hl.dsp.focus({ direction = "right" }))
   hl.bind(with_prefix(super, { "K" }), hl.dsp.focus({ direction = "up" }))
   hl.bind(with_prefix(super, { "J" }), hl.dsp.focus({ direction = "down" }))
+
+
+  hl.bind(with_prefix(super, { "CTRL", "LEFT" }), hl.dsp.window.resize({ x = -30, y = 0 }))
+  hl.bind(with_prefix(super, { "CTRL", "RIGHT" }), hl.dsp.window.resize({ x = 30, y = 0 }))
+  hl.bind(with_prefix(super, { "CTRL", "UP" }), hl.dsp.window.resize({ x = 0, y = -30 }))
+  hl.bind(with_prefix(super, { "CTRL", "DOWN" }), hl.dsp.window.resize({ x = 0, y = 30 }))
 end
 
 
@@ -76,10 +85,6 @@ hl.bind(with_prefix(super, { "CTRL", "l" }), hl.dsp.window.swap({ direction = "l
 hl.bind(with_prefix(super, { "CTRL", "h" }), hl.dsp.window.swap({ direction = "right" }))
 hl.bind(with_prefix(super, { "CTRL", "k" }), hl.dsp.window.swap({ direction = "up" }))
 hl.bind(with_prefix(super, { "CTRL", "j" }), hl.dsp.window.swap({ direction = "down" }))
-hl.bind(with_prefix(super, { "CTRL", "LEFT" }), hl.dsp.window.resize({ x = -30, y = 0 }))
-hl.bind(with_prefix(super, { "CTRL", "RIGHT" }), hl.dsp.window.resize({ x = 30, y = 0 }))
-hl.bind(with_prefix(super, { "CTRL", "UP" }), hl.dsp.window.resize({ x = 0, y = -30 }))
-hl.bind(with_prefix(super, { "CTRL", "DOWN" }), hl.dsp.window.resize({ x = 0, y = 30 }))
 
 hl.bind(with_prefix(super_shift, { "S" }), hl.dsp.exec_cmd("hyprshot -s -m region output --clipboard-only"))
 hl.bind(with_prefix(super_shift, { "C" }), hl.dsp.exec_cmd("hyprpicker -a -f hex -z | wl-copy"))
