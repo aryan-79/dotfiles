@@ -138,7 +138,10 @@ hl.bind(
 	})
 )
 
-hl.bind(build_prefix(super, { "D" }), hl.dsp.workspace.toggle_special("magic"))
+hl.bind(build_prefix(super, { "D" }), function()
+	hl.dispatch(hl.dsp.exec_cmd('notify-send "Special workspace toggled"'))
+	hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+end)
 hl.bind(build_prefix(super, { "SPACE" }), hl.dsp.exec_cmd("walker"))
 hl.bind(build_prefix(super, { "PERIOD" }), hl.dsp.exec_cmd("walker -m symbols"))
 hl.bind(build_prefix(super, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m output -o $HOME/Pictures/screenshots"))
@@ -155,7 +158,10 @@ hl.bind(build_prefix(super_shift, { "L" }), hl.dsp.window.move({ direction = "le
 hl.bind(build_prefix(super_shift, { "H" }), hl.dsp.window.move({ direction = "right" }))
 hl.bind(build_prefix(super_shift, { "K" }), hl.dsp.window.move({ direction = "up" }))
 hl.bind(build_prefix(super_shift, { "J" }), hl.dsp.window.move({ direction = "down" }))
-hl.bind(build_prefix(super_shift, { "D" }), hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(build_prefix(super_shift, { "D" }), function()
+	hl.dispatch(hl.dsp.exec_cmd('notify-send "Moved to special workspace"'))
+	hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
+end)
 hl.bind(build_prefix(super_shift, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m region -o $HOME/Pictures/screenshots"))
 hl.bind(build_prefix(super_shift, { "DELETE" }), hl.dsp.exec_cmd("poweroff"))
 hl.bind(build_prefix(super_shift, { "ESCAPE" }), hl.dsp.exec_cmd("hyprlock"))
@@ -166,6 +172,31 @@ hl.bind(build_prefix(alt, { "TAB" }), hl.dsp.focus({ workspace = "-1" }))
 hl.bind(build_prefix(alt_shift, { "B" }), hl.dsp.exec_cmd(bluetooth_controller))
 hl.bind(build_prefix(alt_shift, { "V" }), hl.dsp.exec_cmd(audio_controller))
 hl.bind(build_prefix(alt_shift, { "W" }), hl.dsp.exec_cmd("ghostty -e impala"))
+
+-- toggle active window opacity
+hl.bind(build_prefix(super, { "F1" }), function()
+	local active_opacity = hl.get_config("decoration.active_opacity")
+	-- local fullscreen_opacity = hl.get_config("decoration.fullscreen_opacity")
+
+	if active_opacity >= 0.9 then
+		hl.dispatch(hl.dsp.exec_cmd('notify-send "Enabled active window opacity"'))
+		hl.config({
+			decoration = {
+				active_opacity = 0.9,
+				fullscreen_opacity = 0.9,
+			},
+		})
+		return
+	end
+	hl.dispatch(hl.dsp.exec_cmd('notify-send "Disabled active window opacity"'))
+
+	hl.config({
+		decoration = {
+			active_opacity = 1,
+			fullscreen_opacity = 1,
+		},
+	})
+end)
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
