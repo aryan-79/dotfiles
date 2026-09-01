@@ -147,17 +147,14 @@ hl.bind(build_prefix(super, { "PERIOD" }), hl.dsp.exec_cmd("walker -m symbols"))
 hl.bind(build_prefix(super, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m output -o $HOME/Pictures/screenshots"))
 hl.bind(build_prefix(super, { "TAB" }), hl.dsp.focus({ workspace = "+1" }))
 
-hl.bind(build_prefix(super, { "CTRL", "l" }), hl.dsp.window.swap({ direction = "left" }))
-hl.bind(build_prefix(super, { "CTRL", "h" }), hl.dsp.window.swap({ direction = "right" }))
-hl.bind(build_prefix(super, { "CTRL", "k" }), hl.dsp.window.swap({ direction = "up" }))
-hl.bind(build_prefix(super, { "CTRL", "j" }), hl.dsp.window.swap({ direction = "down" }))
-
 hl.bind(build_prefix(super_shift, { "S" }), hl.dsp.exec_cmd("hyprshot -s -m region output --clipboard-only"))
 hl.bind(build_prefix(super_shift, { "C" }), hl.dsp.exec_cmd("hyprpicker -a -f hex -z | wl-copy"))
-hl.bind(build_prefix(super_shift, { "L" }), hl.dsp.window.move({ direction = "left" }))
-hl.bind(build_prefix(super_shift, { "H" }), hl.dsp.window.move({ direction = "right" }))
+
+hl.bind(build_prefix(super_shift, { "L" }), hl.dsp.window.move({ direction = "right" }))
+hl.bind(build_prefix(super_shift, { "H" }), hl.dsp.window.move({ direction = "left" }))
 hl.bind(build_prefix(super_shift, { "K" }), hl.dsp.window.move({ direction = "up" }))
 hl.bind(build_prefix(super_shift, { "J" }), hl.dsp.window.move({ direction = "down" }))
+
 hl.bind(build_prefix(super_shift, { "D" }), function()
 	hl.dispatch(hl.dsp.exec_cmd('notify-send "Moved to special workspace"'))
 	hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
