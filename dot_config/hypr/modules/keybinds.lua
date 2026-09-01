@@ -44,14 +44,14 @@ hl.bind(build_prefix(super, { "F" }), hl.dsp.window.fullscreen({ mode = "fullscr
 hl.bind(build_prefix(super, { "V" }), hl.dsp.exec_cmd("walker -m clipboard"))
 hl.bind(build_prefix(super, { "N" }), hl.dsp.exec_cmd("swaync-client -t -sw"))
 
-local binds = {
+local direction_bind = {
 	{ key = "H", direction = "l" },
 	{ key = "L", direction = "r" },
 	{ key = "J", direction = "d" },
 	{ key = "K", direction = "u" },
 }
 
-for _, e in ipairs(binds) do
+for _, e in ipairs(direction_bind) do
 	hl.bind(
 		build_prefix(super, { e.key }),
 		layout_bind({
@@ -60,6 +60,8 @@ for _, e in ipairs(binds) do
 			master = hl.dsp.focus({ direction = e.direction }),
 		})
 	)
+
+	hl.bind(build_prefix(super_shift, { e.key }), hl.dsp.window.swap({ direction = e.direction }))
 end
 
 hl.bind(
@@ -149,11 +151,6 @@ hl.bind(build_prefix(super, { "TAB" }), hl.dsp.focus({ workspace = "+1" }))
 
 hl.bind(build_prefix(super_shift, { "S" }), hl.dsp.exec_cmd("hyprshot -s -m region output --clipboard-only"))
 hl.bind(build_prefix(super_shift, { "C" }), hl.dsp.exec_cmd("hyprpicker -a -f hex -z | wl-copy"))
-
-hl.bind(build_prefix(super_shift, { "L" }), hl.dsp.window.move({ direction = "right" }))
-hl.bind(build_prefix(super_shift, { "H" }), hl.dsp.window.move({ direction = "left" }))
-hl.bind(build_prefix(super_shift, { "K" }), hl.dsp.window.move({ direction = "up" }))
-hl.bind(build_prefix(super_shift, { "J" }), hl.dsp.window.move({ direction = "down" }))
 
 hl.bind(build_prefix(super_shift, { "D" }), function()
 	hl.dispatch(hl.dsp.exec_cmd('notify-send "Moved to special workspace"'))
