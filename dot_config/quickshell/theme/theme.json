@@ -1,0 +1,16 @@
+{
+  "bg": "#171A1A",
+  "surface": "#414545",
+  "hover": "#A28879",
+  "fg": "#F4DBCB",
+  "fgMuted": "#E7C2AD",
+  "accent": "#CB8C66",
+  "accentMuted": "#A77E66",
+  "info": "#7D877C",
+  "infoMuted": "#6C746B",
+  "warn": "#F59E0B",
+  "danger": "#EF4444",
+  "font": "Maple Mono NF CN",
+  "fontSize": 16,
+  "radius": 9999
+}
