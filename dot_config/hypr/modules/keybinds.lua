@@ -120,13 +120,12 @@ hl.bind(
 local function equalize_cols()
 	return function()
 		local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+		local windows = hl.get_windows({ workspace })
 
-		if not workspace then
-			return
-		end
-
-		if workspace.has_fullscreen then
-			hl.dispatch(hl.dsp.window.fullscreen({ mode = "fullscreen", action = "unset" }))
+		for _, w in ipairs(windows) do
+			if w.fullscreen == 2 then
+				hl.dispatch(hl.dsp.window.fullscreen({ window = w, mode = "fullscreen", action = "unset" }))
+			end
 		end
 
 		hl.dispatch(hl.dsp.layout("colresize all 0.5"))
@@ -134,9 +133,16 @@ local function equalize_cols()
 end
 
 hl.bind(
-	build_prefix(super_shift, { "F" }),
+	build_prefix(super_shift, { "V" }),
 	layout_bind({
 		scrolling = hl.dispatch(equalize_cols),
+	})
+)
+
+hl.bind(
+	build_prefix(super_shift, { "F" }),
+	layout_bind({
+		scrolling = hl.dsp.layout("fit active"),
 	})
 )
 
