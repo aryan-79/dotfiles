@@ -1,0 +1,16 @@
+{
+  "bg": "{{background}}",
+  "surface": "{{color0 | darken(0.4)}}",
+  "hover": "{{color0 | darken(0.2)}}",
+  "fg": "{{foreground}}",
+  "fgMuted": "{{color7}}",
+  "accent": "{{color12}}",
+  "accentMuted": "{{color4}}",
+  "info": "{{color9}}",
+  "infoMuted": "{{color1}}",
+  "warn": "#F59E0B",
+  "danger": "#EF4444",
+  "font": "Maple Mono NF CN",
+  "fontSize": 16,
+  "radius": 9999
+}

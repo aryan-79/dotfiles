@@ -34,8 +34,10 @@ threshold = 11
 check_contrast = true
 
 [templates]
-waybar = { template = 'colors-waybar', target = '~/.config/waybar/colors.css' }
+waybar = { template = 'colors-waybar.css', target = '~/.config/waybar/colors.css' }
 ghostty = { template = 'colors-ghostty', target = '~/.config/ghostty/themes/custom.conf'}
-hyprland = { template = 'colors-hyprland', target = '~/.config/hypr/modules/colors.lua'}
-walker = { template = 'colors-walker', target = '~/.config/walker/themes/default/style.css'}
-quickshell = { template = 'colors-qs', target = '~/.config/quickshell/theme/theme.json'}
+hyprland = { template = 'colors-hyprland.lua', target = '~/.config/hypr/modules/colors.lua'}
+walker = { template = 'colors-walker.css', target = '~/.config/walker/themes/default/style.css'}
+quickshell = { template = 'colors-qs.json', target = '~/.config/quickshell/theme/theme.json'}
+zed = { template = 'colors-zed.json', target = '~/.config/zed/themes/wallust.json'}
+dunst = { template = 'colors-dunst', target = '~/.config/dunst/dunstrc'}

@@ -147,7 +147,7 @@ hl.bind(
 )
 
 hl.bind(build_prefix(super, { "D" }), function()
-	hl.dispatch(hl.dsp.exec_cmd('notify-send "Special workspace toggled"'))
+	hl.dispatch(hl.dsp.exec_cmd('notify-send -a "Hyprland" "Special workspace toggled"'))
 	hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
 end)
 hl.bind(build_prefix(super, { "SPACE" }), hl.dsp.exec_cmd("walker"))
@@ -159,7 +159,7 @@ hl.bind(build_prefix(super_shift, { "S" }), hl.dsp.exec_cmd("hyprshot -s -m regi
 hl.bind(build_prefix(super_shift, { "C" }), hl.dsp.exec_cmd("hyprpicker -a -f hex -z | wl-copy"))
 
 hl.bind(build_prefix(super_shift, { "D" }), function()
-	hl.dispatch(hl.dsp.exec_cmd('notify-send "Moved to special workspace"'))
+	hl.dispatch(hl.dsp.exec_cmd('notify-send -a "Hyprland" "Moved to special workspace"'))
 	hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
 end)
 hl.bind(build_prefix(super_shift, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m region -o $HOME/Pictures/screenshots"))
@@ -179,7 +179,7 @@ hl.bind(build_prefix(super, { "F1" }), function()
 	-- local fullscreen_opacity = hl.get_config("decoration.fullscreen_opacity")
 
 	if active_opacity >= 0.9 then
-		hl.dispatch(hl.dsp.exec_cmd('notify-send "Enabled active window opacity"'))
+		hl.dispatch(hl.dsp.exec_cmd('notify-send -a "Hyprland" "Enabled active window opacity"'))
 		hl.config({
 			decoration = {
 				active_opacity = 0.9,
@@ -188,7 +188,7 @@ hl.bind(build_prefix(super, { "F1" }), function()
 		})
 		return
 	end
-	hl.dispatch(hl.dsp.exec_cmd('notify-send "Disabled active window opacity"'))
+	hl.dispatch(hl.dsp.exec_cmd('notify-send -a "Hyprland" "Disabled active window opacity"'))
 
 	hl.config({
 		decoration = {
