@@ -50,8 +50,9 @@ Scope {
 
 
                 Volume {}
-                Bluetooth {}
+                Brightness {}
 
+                Bluetooth {}
                 NetworkInfo {}
 
                 Battery {}
