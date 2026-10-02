@@ -3,14 +3,14 @@
   "surface": "{{color0 | darken(0.4)}}",
   "hover": "{{color0 | darken(0.2)}}",
   "fg": "{{foreground}}",
-  "fgMuted": "{{color7}}",
+  "fgMuted": "{{foreground | darken(0.4)}}",
   "accent": "{{color12}}",
-  "accentMuted": "{{color4}}",
+  "accentMuted": "{{color12 | darken(0.4)}}",
   "info": "{{color9}}",
-  "infoMuted": "{{color1}}",
+  "infoMuted": "{{color9 | darken(0.4)}}",
   "warn": "#F59E0B",
   "danger": "#EF4444",
   "font": "Maple Mono NF CN",
-  "fontSize": 16,
+  "fontSize": 14,
   "radius": 9999
 }

@@ -18,9 +18,13 @@ Singleton {
     readonly property alias infoMuted: adapter.infoMuted
     readonly property alias warn: adapter.warn
     readonly property alias danger: adapter.danger
+
     readonly property alias font: adapter.font
     readonly property alias fontSize: adapter.fontSize
+    readonly property int fontSizeSm: fontSize - 2
+
     readonly property alias radius: adapter.radius
+
 
     FileView {
         id: themeFile

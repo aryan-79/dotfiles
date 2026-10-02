@@ -3,11 +3,10 @@ import QtQuick
 import Quickshell.Hyprland
 import qs.theme
 import qs.ui
+import qs.services
 
 Item {
     id: root
-
-    anchors.fill: parent
 
     required property ShellScreen screen
     property HyprlandMonitor monitor: Hyprland.monitorFor(screen)
@@ -19,37 +18,36 @@ Item {
         id: wsRow
 
         spacing: 4
-        leftPadding: 6
-        rightPadding: 6
-        topPadding: 2
-        bottomPadding: 2
 
         anchors.fill: parent
 
-        property  HyprlandWorkspace activeWs: root.monitor.activeWorkspace
-        property bool focused: activeWs.focused
-        property bool urgent: activeWs.urgent
-
+        readonly property HyprlandWorkspace activeWs: root.monitor ? root.monitor.activeWorkspace : null
+        readonly property bool focused: activeWs ? activeWs.focused : false
+        readonly property bool urgent: activeWs ? activeWs.urgent : false
 
         Button {
-            bg: Theme.bg
-            fg: Theme.fg
-            content: wsRow.activeWs.name
-            square: true
+            spacing: 14
+
+            ThemedText {
+                text: ""
+                color: PowerProfiles.activeProfile === "performance" ? Theme.accent : PowerProfiles.activeProfile === "balanced" ? Theme.accentMuted: Theme.fgMuted
+            }
+
+
+            ThemedText {
+                id: wsName
+                text:  wsRow.activeWs ? wsRow.activeWs.name : ""
+            }
+
+            onClicked: PowerProfiles.cycleProfile()
         }
 
-        Button {
-            bg: Theme.bg
-            fg: Theme.fg
-            maxWidth: 300
-            content: {
-                const window = Hyprland.activeToplevel
+        Pill {
+            color: Theme.bg
 
-                if (!window){
-                    return "~ aryan"
-                }
-
-                return window.title
+            ThemedText {
+                width: Math.min(implicitWidth, 250)
+                text: Hyprland.activeToplevel ? Hyprland.activeToplevel.title : "~ aryan"
             }
         }
     }

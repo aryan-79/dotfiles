@@ -1,61 +1,61 @@
 import QtQuick
 import qs.theme
 
-Item {
+Pill {
     id: root
 
-    required property color bg
-    required property color fg
-    required property string content
-
-    property int maxWidth: text.implicitWidth + 20
-    property bool clickable: false
+    property color bg: Theme.bg
+    property color hoveredColor: Theme.hover
     property bool square: false
-    property int maxLine: 1
+
+    property bool hovered: hoverProc.hovered
 
     signal clicked
+    signal rightClicked
+    signal middleClicked
+    signal scrolledUp
+    signal scrolledDown
 
-    width: Math.min(text.implicitWidth + 20, root.maxWidth)
-    height: square ? width : text.implicitHeight + 8
 
-    property bool hovered: mouseArea.containsMouse
+    paddingX: square ? defaultPaddingX - 1 : defaultPaddingX
+    // width defaults to implicitWidth (padding + maxWidth already handled in Pill)
+    height: square ? width : implicitHeight
+    color: hovered ? hoveredColor : bg
 
-    Rectangle {
-        anchors.fill: parent
-        radius: Theme.radius
-        color: root.bg
-        opacity: root.clickable && root.hovered ? 0.7 : 1
-
-        Text {
-            id: text
-            anchors.centerIn: parent
-            width: Math.min(implicitWidth, parent.width - 20)
-
-            text: root.content
-            color: root.fg
-            horizontalAlignment: Text.AlignHCenter
-
-            font.family: Theme.font
-            font.pixelSize: Theme.fontSize
-
-            elide: Text.ElideRight
-            opacity: root.clickable && root.hovered ? 0.7 : 1
-            maximumLineCount: root.maxLine
-        }
-
-        MouseArea {
-            id: mouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            cursorShape: root.clickable ? Qt.PointingHandCursor : Qt.ArrowCursor
-            onClicked: {
-                if (root.clickable) {
-                    root.clicked()
-                }
-            }
-        }
-
-        Behavior on color { ColorAnimation { duration: 200 } }
-        Behavior on opacity { NumberAnimation { duration: 120 } }
+    TapHandler {
+        onTapped: root.clicked()
     }
+
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        onTapped: root.rightClicked()
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.MiddleButton
+        onTapped: root.middleClicked()
+    }
+
+    WheelHandler {
+        orientation: Qt.Vertical
+        property: "y"
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        onRotationChanged: {
+              if (rotation > 0)
+                  root.scrolledUp()
+              else if (rotation < 0)
+                  root.scrolledDown()
+
+              rotation = 0
+          }
+    }
+
+    HoverHandler {
+        id: hoverProc
+        cursorShape: Qt.PointingHandCursor
+        enabled: true
+    }
+
+    Behavior on color { ColorAnimation { duration: 150 } }
+    Behavior on opacity { NumberAnimation { duration: 150 } }
 }
