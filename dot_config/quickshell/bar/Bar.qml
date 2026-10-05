@@ -1,5 +1,7 @@
 import Quickshell
 import QtQuick
+import Quickshell.Wayland
+import qs.services
 
 Scope {
     id: root
@@ -8,7 +10,11 @@ Scope {
 
         PanelWindow {
             id: panel
+            WlrLayershell.namespace: "qs-bar"
+
             required property ShellScreen modelData
+
+            visible: UiState.barShown
 
             margins {
                 top: 2

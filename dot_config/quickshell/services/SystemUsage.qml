@@ -9,7 +9,7 @@ Singleton {
     id: root
 
     // set false to pause polling when UI is hidden
-    property bool active: true
+    property bool active: UiState.barShown
 
     property real cpuPerc: 0        // 0..1
     property real memUsed: 0        // kB
@@ -145,4 +145,8 @@ Singleton {
             root.refreshBrightnessStatus()
         }
     }
+
+    // Component.onCompleted: {
+    //     root.refreshBrightnessStatus()
+    // }
 }

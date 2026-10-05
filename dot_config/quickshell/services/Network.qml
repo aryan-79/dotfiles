@@ -20,37 +20,40 @@ Singleton {
     readonly property bool hasInternetAccess: Networking.connectivity === NetworkConnectivity.Full
 
     function getWifiIcon(s: real, internetAccess: bool): string {
+        if (!wifiNet || !wifiNet.connected) {
+            return "󰤭"
+        }
+
         if (internetAccess){
             if (s >= 0.9){
-                return "\udb82\udd28"
+                return "󰤨"
             }
             if (s >= 0.75 && s < 0.9) {
-                return "\udb82\udd25"
+                return "󰤥"
             }
             if (s >= 0.5 && s < 0.75) {
-                return "\udb82\udd22"
+                return "󰤢"
             }
             if (s >= 0.25 && s < 0.5) {
-                return "\udb82\udd1f"
+                return "󰤟"
             }
 
-            return "\udb82\udd2f"
+            return "󰤯"
         } else {
             if (s >= 0.9){
-                return "\udb82\udd29"
+                return "󰤩"
             }
             if (s >= 0.75 && s < 0.9) {
-                return "\udb82\udd26"
+                return "󰤦"
             }
             if (s >= 0.5 && s < 0.75) {
-                return "\udb82\udd23"
+                return "󰤣"
             }
 
             if (s >= 0.25 && s < 0.5) {
-                return "\udb82\udd20"
+                return "󰤠"
             }
-            return "\udb82\udd2b"
-
+            return "󰤫"
         }
     }
 }
