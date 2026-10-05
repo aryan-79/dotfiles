@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-	hl.exec_cmd("swaync & qs & hyprpaper & hypridle")
+	hl.exec_cmd("qs & hyprpaper & hypridle")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
 	-- hl.exec_cmd("xwaylandvideobridge")

@@ -41,8 +41,9 @@ hl.bind(build_prefix(super, { "B" }), hl.dsp.exec_cmd(browser))
 hl.bind(build_prefix(super, { "E" }), hl.dsp.exec_cmd(file_manager))
 hl.bind(build_prefix(super, { "Q" }), hl.dsp.window.close())
 hl.bind(build_prefix(super, { "F" }), hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(build_prefix(super, { "Y" }), hl.dsp.window.float())
 hl.bind(build_prefix(super, { "V" }), hl.dsp.exec_cmd("walker -m clipboard"))
-hl.bind(build_prefix(super, { "N" }), hl.dsp.exec_cmd("swaync-client -t -sw"))
+-- hl.bind(build_prefix(super, { "N" }), hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 local direction_bind = {
 	{ key = "H", direction = "l" },
@@ -230,3 +231,6 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 hl.bind(build_prefix(super, { "mouse:272" }), hl.dsp.window.drag(), { mouse = true })
 hl.bind(build_prefix(super, { "mouse:273" }), hl.dsp.window.resize(), { mouse = true })
+
+-- qs ipc calls
+hl.bind(build_prefix(super_shift, { "P" }), hl.dsp.exec_cmd("qs ipc call powermenu toggle"))
