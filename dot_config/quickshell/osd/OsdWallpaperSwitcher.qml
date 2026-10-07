@@ -17,7 +17,7 @@ Scope {
 
     Connections {
         target: UiState
-        function onWallpaperSwitcherShownChanged() {
+        function onWallpaperSwitcherShownChanged(): void {
             if (UiState.wallpaperSwitcherShown) hideTimer.restart()
             else hideTimer.stop()
         }
@@ -80,11 +80,11 @@ Scope {
                 wallust run "$1"
             `
 
-            function applyLive(path: string) {
+            function applyLive(path: string): void {
                 Quickshell.execDetached(["sh", "-c", win.previewScript, "_", path])
             }
 
-            function forwardFocus(inc: bool) {
+            function forwardFocus(inc: bool): void {
                 const count = wallpapers.length
                 if (count === 0) return
 
@@ -175,7 +175,7 @@ Scope {
                 wallust run "$1"
             `
 
-            function run(idx: number) {
+            function run(idx: number): void {
                 const path = win.wallpapers[win.currentIndex]
                 if (!path) return
                 win.confirmed = true     // preview

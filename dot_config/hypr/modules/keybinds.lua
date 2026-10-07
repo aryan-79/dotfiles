@@ -234,3 +234,4 @@ hl.bind(build_prefix(super, { "mouse:273" }), hl.dsp.window.resize(), { mouse = 
 
 -- qs ipc calls
 hl.bind(build_prefix(super_shift, { "P" }), hl.dsp.exec_cmd("qs ipc call powermenu toggle"))
+hl.bind(build_prefix(super_shift, { "W" }), hl.dsp.exec_cmd("qs ipc call wallpaper-switcher toggle"))
