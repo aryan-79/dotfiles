@@ -8,6 +8,7 @@ Singleton {
 
     property bool barShown: true
     property bool powermenuShown: false
+    property bool wallpaperSwitcherShown: false
 
     function showBar(){
         barShown = true
@@ -23,5 +24,13 @@ Singleton {
 
     function hidePowermenu(){
         powermenuShown = false
+    }
+
+    function showWallpaperSwitcher(){
+        wallpaperSwitcherShown = true
+    }
+
+    function hideWallpaperSwitcher(){
+        wallpaperSwitcherShown = false
     }
 }

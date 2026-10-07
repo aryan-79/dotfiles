@@ -80,10 +80,11 @@ Scope {
                 currentIndex = inc
                        ? (currentIndex + 1) % count
                        : (currentIndex - 1 + count) % count
+                hideTimer.restart()
             }
 
             Shortcut {
-                sequence: "Escape"
+                sequences: ["Escape", "Q"]
                 onActivated: UiState.hidePowermenu()
             }
 
