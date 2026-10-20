@@ -151,10 +151,19 @@ hl.bind(build_prefix(super, { "D" }), function()
 	hl.dispatch(hl.dsp.exec_cmd('notify-send -a "Hyprland" "Special workspace toggled"'))
 	hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
 end)
+
 hl.bind(build_prefix(super, { "SPACE" }), hl.dsp.exec_cmd("walker"))
 hl.bind(build_prefix(super, { "PERIOD" }), hl.dsp.exec_cmd("walker -m symbols"))
-hl.bind(build_prefix(super, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m output -o $HOME/Pictures/screenshots"))
-hl.bind(build_prefix(super, { "TAB" }), hl.dsp.focus({ workspace = "+1" }))
+hl.bind(build_prefix(super, { "PRINT" }), hl.dsp.exec_cmd("hyprshot -m output -m active -o $HOME/Pictures/screenshots"))
+
+hl.bind(
+	build_prefix(super, { "TAB" }),
+	layout_bind({
+		dwindle = hl.dsp.focus({ workspace = "+1" }),
+		master = hl.dsp.focus({ workspace = "+1" }),
+		scrolling = hl.dsp.layout("focus right"),
+	})
+)
 
 hl.bind(build_prefix(super_shift, { "S" }), hl.dsp.exec_cmd("hyprshot -s -m region output --clipboard-only"))
 hl.bind(build_prefix(super_shift, { "C" }), hl.dsp.exec_cmd("hyprpicker -a -f hex -z | wl-copy"))
@@ -168,7 +177,14 @@ hl.bind(build_prefix(super_shift, { "DELETE" }), hl.dsp.exec_cmd("poweroff"))
 hl.bind(build_prefix(super_shift, { "ESCAPE" }), hl.dsp.exec_cmd("hyprlock"))
 
 hl.bind(build_prefix(alt, { "F4" }), hl.dsp.window.close())
-hl.bind(build_prefix(alt, { "TAB" }), hl.dsp.focus({ workspace = "-1" }))
+hl.bind(
+	build_prefix(alt, { "TAB" }),
+	layout_bind({
+		dwindle = hl.dsp.focus({ workspace = "-1" }),
+		master = hl.dsp.focus({ workspace = "-1" }),
+		scrolling = hl.dsp.layout("focus left"),
+	})
+)
 
 hl.bind(build_prefix(alt_shift, { "B" }), hl.dsp.exec_cmd(bluetooth_controller))
 hl.bind(build_prefix(alt_shift, { "V" }), hl.dsp.exec_cmd(audio_controller))

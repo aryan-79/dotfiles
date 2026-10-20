@@ -17,8 +17,7 @@ Singleton {
 
     readonly property var props: sink?.properties ?? ({})
     readonly property int deviceId: parseInt(props["device.id"] ?? "-1")
-    readonly property bool isBluetooth: (props["device.api"] ?? "") === "bluez5"
-        || (sink?.name ?? "").startsWith("bluez_output")
+    readonly property bool isBluetooth: (props["device.api"] ?? "") === "bluez5" || (sink?.name ?? "").startsWith("bluez_output")
     readonly property bool isAlsa: (sink?.name ?? "").startsWith("alsa_output")
 
     property string deviceIcon: ""
@@ -32,19 +31,27 @@ Singleton {
     property bool jackHeadphones: false
 
     readonly property string kind: {
-        if (!ready) return "none"
-        if (isBluetooth || bus === "bluetooth") return "bluetooth"
-        if (isAlsa && jackHeadphones) return "headphones"
+        if (!ready)
+            return "none";
+        if (isBluetooth || bus === "bluetooth")
+            return "bluetooth";
+        if (isAlsa && jackHeadphones)
+            return "headphones";
         switch (formFactor) {
         case "headphone":
         case "headset":
-        case "hands-free": return "headphones"
+        case "hands-free":
+            return "headphones";
         case "speaker":
         case "hifi":
-        case "portable": return "speaker"
-        case "tv": return "display"
-        case "internal": return "internal"
-        default: return bus === "usb" ? "usb" : "unknown"
+        case "portable":
+            return "speaker";
+        case "tv":
+            return "display";
+        case "internal":
+            return "internal";
+        default:
+            return bus === "usb" ? "usb" : "unknown";
         }
     }
 
@@ -53,61 +60,70 @@ Singleton {
     }
 
     function setVolume(v: real): void {
-        if (!audio) return
-        audio.volume = Math.max(0, Math.min(1, v))
+        if (!audio)
+            return;
+        audio.volume = Math.max(0, Math.min(1, v));
     }
 
     function changeVolume(delta: real): void {
-        setVolume(volume + delta)
+        setVolume(volume + delta);
     }
 
     function toggleMute(): void {
-        if (!audio) return
-        audio.muted = !audio.muted
+        if (!audio)
+            return;
+        audio.muted = !audio.muted;
     }
 
-    function getAudioIcon() : string {
-        if (!ready || muted || volume <= 0 || kind === "unknown" || kind === "none") return ""
+    function getAudioIcon(): string {
+        if (!ready || muted || volume <= 0 || kind === "unknown" || kind === "none")
+            return "";
 
         switch (kind) {
-            case "bluetooth": return "󰥰"
-
-            case "headphones": return "󰋋"
-
-            case "speaker":
-            case "tv":
-            case "internal":
-            case "usb": {
-                if (volume >= 0.9) return ""
-                if (volume >= 0.75 && volume < 0.9) return ""
-                if (volume >= 0.5 && volume < 0.75) return ""
-                if (volume >= 0.25 && volume < 0.5) return ""
-                return ""
+        case "bluetooth":
+            return "󰥰";
+        case "headphones":
+            return "󰋋";
+        case "speaker":
+        case "tv":
+        case "internal":
+        case "usb":
+            {
+                if (volume >= 0.9)
+                    return "";
+                if (volume >= 0.75 && volume < 0.9)
+                    return "";
+                if (volume >= 0.5 && volume < 0.75)
+                    return "";
+                if (volume >= 0.25 && volume < 0.5)
+                    return "";
+                return "";
             }
-            default: return ""
+        default:
+            return "";
         }
     }
 
     Process {
         id: deviceProc
-        command: ["sh", "-c",
-            `pw-dump ${root.deviceId} | jq -r '.[0].info.props | [(."device.icon-name" // ""), (."device.form-factor" // ""), (."device.bus" // "")] | @tsv'`]
+        command: ["sh", "-c", `pw-dump ${root.deviceId} | jq -r '.[0].info.props | [(."device.icon-name" // ""), (."device.form-factor" // ""), (."device.bus" // "")] | @tsv'`]
         stdout: SplitParser {
             onRead: line => {
-                const [icon, ff, bus] = line.split("\t")
-                root.deviceIcon = icon ?? ""
-                root.deviceFormFactor = ff ?? ""
-                root.deviceBus = (bus ?? "").trim()
+                const [icon, ff, bus] = line.split("\t");
+                root.deviceIcon = icon ?? "";
+                root.deviceFormFactor = ff ?? "";
+                root.deviceBus = (bus ?? "").trim();
             }
         }
     }
 
     function refreshDevice(): void {
-        deviceIcon = ""
-        deviceFormFactor = ""
-        deviceBus = ""
-        deviceProc.running = false
-        if (deviceId >= 0) deviceProc.running = true
+        deviceIcon = "";
+        deviceFormFactor = "";
+        deviceBus = "";
+        deviceProc.running = false;
+        if (deviceId >= 0)
+            deviceProc.running = true;
     }
 
     onDeviceIdChanged: refreshDevice()
