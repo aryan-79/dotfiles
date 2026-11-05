@@ -42,6 +42,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 
 eval "$(zoxide init zsh)"
+eval "$(fzf --zsh)"
 
 # opencode
 export PATH=/home/aryan/.opencode/bin:$PATH
