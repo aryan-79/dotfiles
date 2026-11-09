@@ -18,8 +18,10 @@ Scope {
     Connections {
         target: UiState
         function onWallpaperSwitcherShownChanged(): void {
-            if (UiState.wallpaperSwitcherShown) hideTimer.restart()
-            else hideTimer.stop()
+            if (UiState.wallpaperSwitcherShown)
+                hideTimer.restart();
+            else
+                hideTimer.stop();
         }
     }
 
@@ -27,7 +29,7 @@ Scope {
         target: "wallpaper-switcher"
 
         function toggle(): void {
-            UiState.wallpaperSwitcherShown ? UiState.hideWallpaperSwitcher() : UiState.showWallpaperSwitcher()
+            UiState.wallpaperSwitcherShown ? UiState.hideWallpaperSwitcher() : UiState.showWallpaperSwitcher();
         }
     }
 
@@ -68,9 +70,9 @@ Scope {
 
             // preview: restore the original wallpaper and colors if closed without confirming
             Component.onDestruction: {
-                previewTimer.stop()
+                previewTimer.stop();
                 if (previewed && !confirmed && currentWallpaper)
-                    applyLive(currentWallpaper)
+                    applyLive(currentWallpaper);
             }
 
             // preview: wallpaper + colors, nothing written to hyprpaper.conf
@@ -81,28 +83,26 @@ Scope {
             `
 
             function applyLive(path: string): void {
-                Quickshell.execDetached(["sh", "-c", win.previewScript, "_", path])
+                Quickshell.execDetached(["sh", "-c", win.previewScript, "_", path]);
             }
 
             function forwardFocus(inc: bool): void {
-                const count = wallpapers.length
-                if (count === 0) return
+                const count = wallpapers.length;
+                if (count === 0)
+                    return;
+                currentIndex = inc ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count;
 
-                currentIndex = inc
-                    ? (currentIndex + 1) % count
-                    : (currentIndex - 1 + count) % count
-
-                hideTimer.restart()
-                previewTimer.restart()   // preview
+                hideTimer.restart();
+                previewTimer.restart();   // preview
             }
 
             function getFileName(path: string): string {
-                return path.split("/").pop()
+                return path.split("/").pop();
             }
 
             function getCurrentWallpaperIndex(): int {
-                const currFileName = getFileName(currentWallpaper)
-                return Math.max(0, wallpapers.findIndex(w => getFileName(w) === currFileName))
+                const currFileName = getFileName(currentWallpaper);
+                return Math.max(0, wallpapers.findIndex(w => getFileName(w) === currFileName));
             }
 
             // preview: debounced so holding a key doesn't spam hyprctl/wallust
@@ -110,27 +110,17 @@ Scope {
                 id: previewTimer
                 interval: 300
                 onTriggered: {
-                    win.previewed = true
-                    win.applyLive(win.wallpapers[win.currentIndex])
+                    win.previewed = true;
+                    win.applyLive(win.wallpapers[win.currentIndex]);
                 }
             }
 
             Process {
-                command: [
-                    "find", win.wallpaperDir,
-                    "-maxdepth", "1",
-                    "-type", "f",
-                    "(",
-                    "-iname", "*.png",
-                    "-o", "-iname", "*.jpg",
-                    "-o", "-iname", "*.jpeg",
-                    "-o", "-iname", "*.webp",
-                    ")"
-                ]
+                command: ["find", win.wallpaperDir, "-maxdepth", "1", "-type", "f", "(", "-iname", "*.png", "-o", "-iname", "*.jpg", "-o", "-iname", "*.jpeg", "-o", "-iname", "*.webp", ")"]
                 running: true
                 stdout: SplitParser {
                     onRead: data => {
-                        win.wallpapers = [...win.wallpapers, data]
+                        win.wallpapers = [...win.wallpapers, data];
                     }
                 }
             }
@@ -140,9 +130,9 @@ Scope {
                 running: true
                 stdout: StdioCollector {
                     onStreamFinished: {
-                        const line = text.split("\n")[0] ?? ""
-                        const i = line.indexOf(":")
-                        win.currentWallpaper = i >= 0 ? line.slice(i + 1).trim() : ""
+                        const line = text.split("\n")[0] ?? "";
+                        const i = line.indexOf(":");
+                        win.currentWallpaper = i >= 0 ? line.slice(i + 1).trim() : "";
                     }
                 }
             }
@@ -176,18 +166,19 @@ Scope {
             `
 
             function run(idx: number): void {
-                const path = win.wallpapers[win.currentIndex]
-                if (!path) return
-                win.confirmed = true     // preview
-                previewTimer.stop()      // preview
-                Quickshell.execDetached(["sh", "-c", win.setWallpaperScript, "_", path])
-                UiState.hideWallpaperSwitcher()
+                const path = win.wallpapers[win.currentIndex];
+                if (!path)
+                    return;
+                win.confirmed = true;     // preview
+                previewTimer.stop();      // preview
+                Quickshell.execDetached(["sh", "-c", win.setWallpaperScript, "_", path]);
+                UiState.hideWallpaperSwitcher();
             }
 
             Shortcut {
                 sequences: ["Enter", "Return"]
                 onActivated: {
-                    win.run(win.currentIndex)
+                    win.run(win.currentIndex);
                 }
             }
 
@@ -212,7 +203,7 @@ Scope {
 
                     implicitWidth: Math.min(contentWidth, win.screen.width * 0.6 - win.padding * 2)
                     implicitHeight: win.itemSize
-                    highlightRangeMode:  !win.firstLoad ? ListView.NoHighlightRange : ListView.ApplyRange
+                    highlightRangeMode: !win.firstLoad ? ListView.NoHighlightRange : ListView.ApplyRange
 
                     // highlightRangeMode: contentWidth > width
                     //                     ? ListView.StrictlyEnforceRange

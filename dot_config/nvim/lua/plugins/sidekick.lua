@@ -6,14 +6,14 @@ return {
         backend = "tmux",
         enabled = true,
       },
-      tools = {
-        -- claude = {
-        --   cmd = { "ollama", "launch", "claude", "--model", "minimax-m2.5:cloud" },
-        -- },
-        opencode = {
-          cmd = { "ollama", "launch", "opencode", "--model", "minimax-m2.5:cloud" },
-        },
-      },
+      -- tools = {
+      -- claude = {
+      --   cmd = { "ollama", "launch", "claude", "--model", "minimax-m2.5:cloud" },
+      -- },
+      -- opencode = {
+      --   cmd = { "ollama", "launch", "opencode", "--model", "minimax-m2.5:cloud" },
+      -- },
+      -- },
     },
   },
   keys = {

@@ -77,6 +77,21 @@ return {
     },
   },
 
+  -- {
+  --   "RedsXDD/neopywal.nvim",
+  --   name = "neopywal",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     use_palette = {
+  --       dark = "wallust",
+  --       light = "wallust",
+  --     },
+  --     transparent_background = true,
+  --     dim_inactive = true,
+  --   },
+  -- },
+
   {
     "LazyVim/LazyVim",
     opts = {
