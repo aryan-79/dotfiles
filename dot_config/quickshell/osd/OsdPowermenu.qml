@@ -70,7 +70,7 @@ Scope {
             property int currentIndex: 0
 
             function run(i: int) {
-                if(i < 0 || i >= entries.lenght) return
+                if(i < 0 || i >= entries.length) return
                 Quickshell.execDetached(entries[i].cmd)
                 UiState.hidePowermenu()
             }
@@ -172,7 +172,7 @@ Scope {
 
                             TapHandler {
                                 onTapped: {
-                                    Quickshell.execDetached(c.modelData.cmd)
+                                    win.run(c.index)
                                 }
                             }
 
@@ -180,6 +180,10 @@ Scope {
                                 id: hoverProc
                                 cursorShape: Qt.PointingHandCursor
                                 enabled: true
+                                onHoveredChanged:  if (hoverProc.hovered) {
+                                    win.currentIndex = c.index
+                                    hideTimer.restart()
+                                }
                             }
                         }
                     }
