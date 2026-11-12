@@ -27,11 +27,11 @@ Scope {
     IpcHandler {
         target: "powermenu"
 
-        function show(): void {
+        function showMenu(): void {
             UiState.showPowermenu()
         }
 
-        function hide(): void {
+        function hideMenu(): void {
             UiState.hidePowermenu()
         }
 

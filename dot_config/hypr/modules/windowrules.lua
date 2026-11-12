@@ -46,11 +46,18 @@ hl.window_rule({
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true, no_anim = true })
 
-print("registering qs-bar layer rule")
-
 hl.layer_rule({
 	match = {
 		namespace = "qs-.*",
 	},
 	animation = "fade",
+})
+
+hl.window_rule({
+	match = {
+		class = "org.quickshell",
+		initial_title = "qs-bluetooth",
+	},
+	float = true,
+	size = { 800, 600 },
 })

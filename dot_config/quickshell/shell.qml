@@ -5,6 +5,8 @@ import qs.osd
 ShellRoot {
     Bar {}
 
-    OsdPowermenu{}
-    OsdWallpaperSwitcher {}
+    Powermenu{}
+    WallpaperSwitcher {}
+
+    BtMenu{}
 }
