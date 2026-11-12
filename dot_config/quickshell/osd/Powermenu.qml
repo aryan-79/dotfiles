@@ -103,6 +103,16 @@ Scope {
                 onActivated: win.run(win.currentIndex)
             }
 
+            Shortcut {
+                sequences: ["G"]
+                onActivated: win.currentIndex = 0
+            }
+
+            Shortcut {
+                sequences: ["Shift+G"]
+                onActivated: win.currentIndex = win.entries.length - 1
+            }
+
             Rectangle {
                 id: layoutContainer
                 anchors.centerIn: parent
