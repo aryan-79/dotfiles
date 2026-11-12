@@ -41,5 +41,5 @@ walker = { template = 'colors-walker.css', target = '~/.config/walker/themes/def
 quickshell = { template = 'colors-qs.json', target = '~/.config/quickshell/theme/theme.json'}
 zed = { template = 'colors-zed.json', target = '~/.config/zed/themes/wallust.json'}
 dunst = { template = 'colors-dunst', target = '~/.config/dunst/dunstrc'}
-gtk-3 = { template = 'colors-gtk.css', target = '~/.config/gtk-3.0/gtk.css'}
-gtk-4 = { template = 'colors-gtk.css', target = '~/.config/gtk-4.0/gtk.css'}
+gtk-3 = { template = 'colors-gtk3.css', target = '~/.config/gtk-3.0/gtk.css'}
+gtk-4 = { template = 'colors-gtk4.css', target = '~/.config/gtk-4.0/gtk.css'}

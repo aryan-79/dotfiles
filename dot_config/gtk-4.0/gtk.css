@@ -1,17 +1,184 @@
-@define-color accent_color #A8605E;
+@define-color accent_bg_color #7B7C93;
 @define-color accent_fg_color #121215;
-@define-color accent_bg_color #A8605E;
-@define-color window_bg_color #121215;
+@define-color accent_color #88899E;
+
+@define-color destructive_bg_color #795A61;
+@define-color destructive_fg_color #121215;
+@define-color destructive_color #866A71;
+
+@define-color success_bg_color #60668B;
+@define-color success_fg_color #121215;
+@define-color success_color #707597;
+
+@define-color warning_bg_color #895D64;
+@define-color warning_fg_color rgba(0, 0, 0, 0.8);
+@define-color warning_color #956D74;
+
+@define-color error_bg_color #795A61;
+@define-color error_fg_color #121215;
+@define-color error_color #866A71;
+
+/* ---------- surfaces ---------- */
+@define-color window_bg_color #17171A;
 @define-color window_fg_color #FBC4B8;
-@define-color headerbar_bg_color #121215;
-@define-color headerbar_fg_color #FBC4B8;
-@define-color popover_bg_color #121215;
-@define-color popover_fg_color #FBC4B8;
-@define-color view_bg_color #19191C;
+
+@define-color view_bg_color #121215;
 @define-color view_fg_color #FBC4B8;
-@define-color card_bg_color #19191C;
-@define-color card_fg_color #FBC4B8;
-@define-color sidebar_bg_color @window_bg_color;
-@define-color sidebar_fg_color @window_fg_color;
-@define-color sidebar_border_color @window_bg_color;
+
+@define-color headerbar_bg_color #1E1E21;
+@define-color headerbar_fg_color #FBC4B8;
+@define-color headerbar_border_color #FBC4B8;
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.9);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.9);
+
+@define-color sidebar_bg_color #141417;
+@define-color sidebar_fg_color #FBC4B8;
 @define-color sidebar_backdrop_color @window_bg_color;
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.36);
+@define-color sidebar_border_color alpha(@window_fg_color, 0.07);
+
+@define-color secondary_sidebar_bg_color #131316;
+@define-color secondary_sidebar_fg_color #FBC4B8;
+@define-color secondary_sidebar_backdrop_color @window_bg_color;
+@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.36);
+@define-color secondary_sidebar_border_color alpha(@window_fg_color, 0.07);
+
+@define-color card_bg_color #1B1B1E;
+@define-color card_fg_color #FBC4B8;
+@define-color card_shade_color rgba(0, 0, 0, 0.9);
+
+@define-color dialog_bg_color #1E1E21;
+@define-color dialog_fg_color #FBC4B8;
+
+@define-color popover_bg_color #252528;
+@define-color popover_fg_color #FBC4B8;
+@define-color popover_shade_color rgba(0, 0, 0, 0.36);
+
+@define-color thumbnail_bg_color #202023;
+@define-color thumbnail_fg_color #FBC4B8;
+
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+
+/* ---------- legacy names (plain GTK4 apps, no libadwaita) ---------- */
+@define-color theme_bg_color @window_bg_color;
+@define-color theme_fg_color @window_fg_color;
+@define-color theme_base_color @view_bg_color;
+@define-color theme_text_color @view_fg_color;
+@define-color theme_selected_bg_color @accent_bg_color;
+@define-color theme_selected_fg_color @accent_fg_color;
+@define-color theme_unfocused_bg_color @window_bg_color;
+@define-color theme_unfocused_fg_color @window_fg_color;
+@define-color theme_unfocused_base_color @view_bg_color;
+@define-color theme_unfocused_text_color @view_fg_color;
+@define-color theme_unfocused_selected_bg_color @accent_bg_color;
+@define-color theme_unfocused_selected_fg_color @accent_fg_color;
+@define-color borders alpha(@window_fg_color, 0.12);
+@define-color unfocused_borders alpha(@window_fg_color, 0.08);
+@define-color insensitive_bg_color @headerbar_bg_color;
+@define-color insensitive_fg_color alpha(@window_fg_color, 0.5);
+@define-color insensitive_base_color @view_bg_color;
+
+/* ---------- libadwaita CSS variables (1.6+ / GTK 4.16+) ---------- */
+:root {
+  --accent-bg-color: #7B7C93;
+  --accent-fg-color: #121215;
+  --accent-color: #88899E;
+  --window-bg-color: #17171A;
+  --window-fg-color: #FBC4B8;
+  --view-bg-color: #121215;
+  --view-fg-color: #FBC4B8;
+  --headerbar-bg-color: #1E1E21;
+  --headerbar-fg-color: #FBC4B8;
+  --sidebar-bg-color: #141417;
+  --sidebar-fg-color: #FBC4B8;
+  --card-bg-color: #1B1B1E;
+  --card-fg-color: #FBC4B8;
+  --dialog-bg-color: #1E1E21;
+  --dialog-fg-color: #FBC4B8;
+  --popover-bg-color: #252528;
+  --popover-fg-color: #FBC4B8;
+}
+
+button {
+  border-radius: 99px;
+}
+
+button.circular {
+  border-radius: 9999px;
+}
+
+.linked:not(.vertical) > button:first-child {
+  border-radius: 99px 0 0 99px;
+}
+
+.linked:not(.vertical) > button:last-child {
+  border-radius: 0 99px 99px 0;
+}
+
+.linked:not(.vertical) > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.linked:not(.vertical) > button:only-child {
+  border-radius: 99px;
+}
+
+.linked:not(.vertical) > button.circular {
+  border-radius: 9999px;
+}
+
+.linked.vertical > button:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.linked.vertical > button:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.linked.vertical > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.linked.vertical > button:only-child {
+  border-radius: 10px;
+}
+
+entry,
+spinbutton:not(.vertical) {
+  border-radius: 10px;
+}
+
+list.boxed-list,
+.card {
+  border-radius: 16px;
+}
+
+popover > contents {
+  border-radius: 16px;
+}
+
+popover.menu modelbutton {
+  border-radius: 10px;
+}
+
+tooltip.background {
+  border-radius: 10px;
+}
+
+.navigation-sidebar > row {
+  border-radius: 10px;
+}
+
+.navigation-sidebar > row:selected {
+  background-color: alpha(@accent_bg_color, 0.3);
+}
+
+spinbutton:not(.vertical) > button {
+  border-radius: 0;
+}
+
+button.card {
+  border-radius: 16px;
+}

@@ -1,17 +1,236 @@
-@define-color accent_color #A8605E;
-@define-color accent_fg_color #121215;
-@define-color accent_bg_color #A8605E;
-@define-color window_bg_color #121215;
-@define-color window_fg_color #FBC4B8;
-@define-color headerbar_bg_color #121215;
-@define-color headerbar_fg_color #FBC4B8;
-@define-color popover_bg_color #121215;
-@define-color popover_fg_color #FBC4B8;
-@define-color view_bg_color #19191C;
-@define-color view_fg_color #FBC4B8;
-@define-color card_bg_color #19191C;
-@define-color card_fg_color #FBC4B8;
-@define-color sidebar_bg_color @window_bg_color;
-@define-color sidebar_fg_color @window_fg_color;
-@define-color sidebar_border_color @window_bg_color;
-@define-color sidebar_backdrop_color @window_bg_color;
+@define-color theme_fg_color #FBC4B8;
+@define-color theme_text_color #FBC4B8;
+@define-color theme_bg_color #17171A;
+@define-color theme_base_color #121215;
+@define-color theme_selected_bg_color #7B7C93;
+@define-color theme_selected_fg_color #121215;
+@define-color insensitive_bg_color #1E1E21;
+@define-color insensitive_fg_color alpha(@theme_fg_color, 0.5);
+@define-color insensitive_base_color #121215;
+@define-color theme_unfocused_fg_color alpha(@theme_fg_color, 0.7);
+@define-color theme_unfocused_text_color #FBC4B8;
+@define-color theme_unfocused_bg_color #17171A;
+@define-color theme_unfocused_base_color #121215;
+@define-color theme_unfocused_selected_bg_color #74758A;
+@define-color theme_unfocused_selected_fg_color #121215;
+@define-color unfocused_insensitive_color alpha(@theme_fg_color, 0.4);
+@define-color borders alpha(@theme_fg_color, 0.12);
+@define-color unfocused_borders alpha(@theme_fg_color, 0.08);
+@define-color warning_color #956D74;
+@define-color error_color #866A71;
+@define-color success_color #707597;
+@define-color content_view_bg #121215;
+@define-color text_view_bg #121215;
+
+button {
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.10);
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 99px;
+  color: @theme_fg_color;
+}
+
+button.circular {
+  border-radius: 9999px;
+}
+
+button:hover {
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.20);
+}
+
+button:active,
+button:checked {
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.30);
+}
+
+button:disabled {
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.05);
+  color: alpha(@theme_fg_color, 0.4);
+}
+
+button.flat {
+  background-color: transparent;
+}
+
+button.flat:hover {
+  background-color: alpha(@theme_fg_color, 0.10);
+}
+
+button.suggested-action,
+button.suggested-action:checked {
+  background-image: none;
+  background-color: #7B7C93;
+  color: #121215;
+}
+
+button.suggested-action:hover {
+  background-image: none;
+  background-color: #838499;
+}
+
+button.suggested-action:active {
+  background-image: none;
+  background-color: #74758A;
+}
+
+button.destructive-action {
+  background-image: none;
+  background-color: #795A61;
+  color: #121215;
+}
+
+headerbar,
+.titlebar {
+  background-image: none;
+  background-color: #1E1E21;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+entry,
+spinbutton {
+  border-radius: 10px;
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.10);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+entry:focus,
+spinbutton:focus {
+  box-shadow: inset 0 0 0 2px #7B7C93;
+}
+
+menu,
+.menu,
+.popup,
+popover.background {
+  border-radius: 14px;
+}
+
+menuitem:hover,
+modelbutton:hover {
+  background-color: alpha(@theme_fg_color, 0.20);
+}
+
+tooltip.background {
+  border-radius: 10px;
+}
+
+switch:checked {
+  background-image: none;
+  background-color: #7B7C93;
+}
+
+scale highlight,
+progressbar progress,
+levelbar block.filled {
+  background-image: none;
+  background-color: #7B7C93;
+}
+
+*:selected,
+row:selected,
+treeview.view:selected,
+iconview:selected,
+entry selection,
+textview text selection {
+  background-color: #7B7C93;
+  color: #121215;
+}
+
+.linked:not(.vertical) > button:first-child {
+  border-radius: 99px 0 0 99px;
+}
+
+.linked:not(.vertical) > button:last-child {
+  border-radius: 0 99px 99px 0;
+}
+
+.linked:not(.vertical) > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.linked:not(.vertical) > button:only-child {
+  border-radius: 99px;
+}
+
+.linked:not(.vertical) > button.circular {
+  border-radius: 9999px;
+}
+
+.linked.vertical > button:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.linked.vertical > button:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.linked.vertical > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.linked.vertical > button:only-child {
+  border-radius: 10px;
+}
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background-color: alpha(@theme_fg_color, 0.30);
+  border-radius: 99px;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+scrollbar slider:hover {
+  background-color: alpha(@theme_fg_color, 0.50);
+}
+
+window, .background {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+}
+
+.view, textview text, iconview, list, listview {
+  background-color: @theme_base_color;
+  color: @theme_text_color;
+}
+
+row {
+  border-radius: 10px;
+}
+
+row:hover:not(:selected) {
+  background-color: alpha(@theme_fg_color, 0.08);
+}
+
+frame > border,
+scrolledwindow viewport,
+notebook > stack {
+  border-color: @borders;
+}
+
+switch {
+  border-radius: 99px;
+  background-image: none;
+  background-color: alpha(@theme_fg_color, 0.15);
+  border: none;
+  box-shadow: none;
+}
+
+switch slider {
+  border-radius: 99px;
+  background-image: none;
+  background-color: @theme_fg_color;
+  border: none;
+  box-shadow: none;
+}
