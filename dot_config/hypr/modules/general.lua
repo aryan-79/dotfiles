@@ -53,6 +53,8 @@ hl.config({
 			enabled = true,
 			size = 8,
 			passes = 2,
+			special = false,
+			new_optimizations = true,
 		},
 	},
 

@@ -5,7 +5,7 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("SSH_AUTH_SOCK", os.getenv("XDG_RUNTIME_DIR") .. "/keyring/ssh")
 
 hl.env("GDK_BACKEND", "wayland,x11")
-
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 -- hl.env("GTK_THEME", "Tokyonight-Dark")
 
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
