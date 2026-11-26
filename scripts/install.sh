@@ -154,6 +154,9 @@ log "Setting up power management and brightness"
 yay -S --needed --noconfirm upower power-profiles-daemon brightnessctl
 sudo systemctl enable --now upower power-profiles-daemon
 
+log "Installing image viewer (qView)"
+yay -S qview
+
 # ---------------------------------------------------------------------------
 # 8. Theming
 # ---------------------------------------------------------------------------
