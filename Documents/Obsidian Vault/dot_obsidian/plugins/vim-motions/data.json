@@ -1,0 +1,440 @@
+{
+  "vimEnabled": true,
+  "enableOnMobile": false,
+  "enableTextObjects": true,
+  "enableNavigation": true,
+  "enableSubwordMotions": false,
+  "enableWorkspaceNav": true,
+  "workspaceNavViewTypes": "",
+  "picker": true,
+  "pickerLeaderMappings": true,
+  "pickerMatcherEngine": "ufuzzy",
+  "pickerNonMarkdownPreview": "rendered",
+  "pickerOmnisearch": true,
+  "pickerTasks": true,
+  "pickerDataview": true,
+  "ripgrepEnabled": true,
+  "ripgrepBinaryPath": "",
+  "ripgrepArgs": "--smart-case --glob \"*.md\"",
+  "grepMode": "ripgrep",
+  "neovimRpcEnabled": false,
+  "neovimToggleInFlight": false,
+  "neovimBinaryPath": "",
+  "neovimConfigPath": "",
+  "neovimConfigExportAutoRefresh": false,
+  "neovimConfigExportFingerprint": "8fe7286d",
+  "frecencyData": {
+    "test.md": {
+      "count": 1,
+      "timestamps": [
+        1795675287120
+      ]
+    }
+  },
+  "configMode": "lua-vimrc",
+  "enableStatusBar": true,
+  "enableChordDisplay": true,
+  "enablePowerline": false,
+  "modePrompts": {
+    "normal": "NORMAL",
+    "insert": "INSERT",
+    "visual": "VISUAL",
+    "replace": "REPLACE",
+    "visualLine": "V-LINE",
+    "visualBlock": "V-BLOCK",
+    "select": "SELECT",
+    "vreplace": "V-REPLACE",
+    "command": "COMMAND",
+    "search": "SEARCH",
+    "insertNormal": "NORMAL"
+  },
+  "enableEasyMotion": true,
+  "easyMotionDimming": true,
+  "enableFlash": true,
+  "flashMultiLine": true,
+  "flashJumpEnabled": false,
+  "flashJumpKey": "s",
+  "flashCleverF": false,
+  "flashMinPatternLength": 1,
+  "flashSearch": true,
+  "enableHardWrap": true,
+  "enableReplaceWithRegister": true,
+  "enableDial": false,
+  "listContinuationOnOpen": true,
+  "normalTabIndent": false,
+  "hoverFocus": false,
+  "markdownIndent": false,
+  "enableTableNav": true,
+  "tableWidgetMode": "auto",
+  "tableWidgetAutoMigrated": true,
+  "tableAutoRealign": "off",
+  "tableColumnHighlight": true,
+  "yankHighlightMode": "solid",
+  "yankHighlightDuration": 200,
+  "signcolumn": "auto",
+  "number": false,
+  "relativenumber": false,
+  "numberwidth": 2,
+  "linenumbermode": "hybrid",
+  "statuscolumn": "",
+  "cursorline": true,
+  "cursorlineopt": "both",
+  "foldcolumn": false,
+  "enableHarpoon": true,
+  "enableYankRing": true,
+  "enableHintMode": true,
+  "hintModeLabels": "asdfghjkl",
+  "hintModeHotkey": "",
+  "scrolloffLines": 5,
+  "multilineScanLimit": 20,
+  "easyMotionLabels": "asdghklqwertyuiopzxcvbnmfj",
+  "labelFontSize": 14,
+  "labelMatchFontSize": false,
+  "cursorShapes": {
+    "normal": "block",
+    "insert": "bar",
+    "visual": "block",
+    "replace": "underline",
+    "operatorPending": "underline"
+  },
+  "clipboard": "unnamedplus",
+  "tabstop": 2,
+  "shiftwidth": 2,
+  "expandtab": true,
+  "pcre": true,
+  "insertmodeescape": "",
+  "insertmodeescapetimeout": 1000,
+  "escapeLeavesInsert": true,
+  "operatorshadowtimeout": 1000,
+  "textwidth": 80,
+  "whichKeyMode": "leader",
+  "whichKeyGrouping": "grouped",
+  "whichKeyDelay": 500,
+  "whichKeySortOrder": "which-key",
+  "whichKeyIcons": true,
+  "whichKeyGroupLabels": [],
+  "whichKeyCommandLabels": [],
+  "vimrcPath": "",
+  "luaConfigPath": "",
+  "showConfigNotifications": true,
+  "globalConfigSearch": false,
+  "leaderBindings": [],
+  "foldAwareNavigation": true,
+  "foldPersistence": false,
+  "oilExplorer": true,
+  "oilShowHiddenFiles": false,
+  "oilConfirmDeleteThreshold": 1,
+  "oilDefaultSort": "name",
+  "pickerKeymap": {
+    "moveDown": [
+      "ArrowDown",
+      "C-n",
+      "C-j"
+    ],
+    "moveUp": [
+      "ArrowUp",
+      "C-p",
+      "C-k"
+    ],
+    "confirm": [
+      "Enter"
+    ],
+    "splitH": [
+      "C-x"
+    ],
+    "splitV": [
+      "C-v"
+    ],
+    "openTab": [
+      "C-t"
+    ],
+    "scrollDown": [
+      "C-d"
+    ],
+    "scrollUp": [
+      "C-u"
+    ],
+    "close": [
+      "Escape",
+      "C-c"
+    ],
+    "yank": [
+      "C-y"
+    ]
+  },
+  "imEnabled": false,
+  "imPreset": "custom",
+  "imBinaryPath": "",
+  "imObtainArgs": "",
+  "imSwitchArgs": "{im}",
+  "imDefaultNormalIm": "",
+  "imRestoreBehavior": "restore",
+  "imDefaultInsertIm": "",
+  "persistedImState": {},
+  "enableSnippets": true,
+  "snippetBundled": true,
+  "snippetDirectory": "",
+  "snippetTriggerMode": "both",
+  "enableVimTextareas": true,
+  "conflictNoticeDismissedVersion": "1.7.0",
+  "enableUndoTree": true,
+  "undoFile": false,
+  "undoTreeMaxNodes": 1000,
+  "undoTreePosition": "right",
+  "undoTreeAutoOpen": false,
+  "persistedUndoTrees": {},
+  "animatedCursor": false,
+  "smoothCursor": true,
+  "cursorSmoothness": 0.5,
+  "smearTrail": true,
+  "smearStiffness": 0.6,
+  "smearTrailingStiffness": 0.3,
+  "smearDamping": 0.85,
+  "smearMaxLength": 400,
+  "pluginAutoFetch": false,
+  "persistedJumpList": [
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 8,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1051,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 4,
+      "ch": 124
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 87
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1046,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1051,
+      "ch": 24
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 4,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "Untitled 1.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 4,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1051,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 5,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 1051,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 97,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/Ntc Preparation.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 0,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 7,
+      "ch": 15
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 9,
+      "ch": 6
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 2,
+      "ch": 9
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 9,
+      "ch": 6
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 4,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 8,
+      "ch": 8
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 2,
+      "ch": 11
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 9,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 1,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 11,
+      "ch": 46
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 13,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 0,
+      "ch": 3
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 12,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 2,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 11,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 0,
+      "ch": 3
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 2,
+      "ch": 17
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 11,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 5,
+      "ch": 3
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 2,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 20,
+      "ch": 94
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 19,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 23,
+      "ch": 0
+    },
+    {
+      "filePath": "loksewa/dsp/Theory of Discrete-Time Linear Systems.md",
+      "line": 29,
+      "ch": 0
+    }
+  ],
+  "persistedMarks": [],
+  "harpoonPins": [],
+  "persistedFolds": {},
+  "configOverrides": {
+    "scrolloffLines": 8,
+    "clipboard": "unnamedplus",
+    "relativenumber": true
+  }
+}

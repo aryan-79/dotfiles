@@ -1,0 +1,10 @@
+{
+  "nativeMenus": true,
+  "cssTheme": "Obsidian gruvbox",
+  "baseFontSize": 18,
+  "textFontFamily": "Maple Mono NF CN",
+  "baseFontSizeAction": true,
+  "showViewHeader": false,
+  "showRibbon": true,
+  "interfaceFontFamily": "JetBrainsMono Nerd Font"
+}

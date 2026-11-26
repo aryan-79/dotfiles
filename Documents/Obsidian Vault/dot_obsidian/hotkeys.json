@@ -1,0 +1,100 @@
+{
+  "editor:delete-paragraph": [],
+  "workspace:copy-full-path": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "C"
+    }
+  ],
+  "file-explorer:new-folder": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "obsidian-git:raw-command": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "G"
+    }
+  ],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "vim-layer:scroll-half-page-down": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "D"
+    }
+  ],
+  "vim-layer:scroll-half-page-up": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "U"
+    }
+  ],
+  "file-explorer:open": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "E"
+    }
+  ],
+  "advanced-pdf-export:open-panel": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ],
+  "obsidian-pandoc:pandoc-export-pdf": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ],
+  "better-export-pdf:export-current-file-to-pdf": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ],
+  "obsidian-enhancing-export:obsidian-enhancing-export:export": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ]
+}
