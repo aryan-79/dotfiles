@@ -161,7 +161,7 @@ yay -S qview
 # 8. Theming
 # ---------------------------------------------------------------------------
 log "Installing theming tools"
-yay -S --needed --noconfirm nwg-look gtk-engine-murrine tokyonight-gtk-theme-git
+yay -S --needed --noconfirm nwg-look gtk-engine-murrine tokyonight-gtk-theme-git hyprqt6engine kvantum
 yay -S --needed --noconfirm bibata-cursor-theme-bin
 
 if ! command -v wallust >/dev/null 2>&1; then
